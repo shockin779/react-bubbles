@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Pack } from "@potion/layout";
 import { Svg, Circle } from "@potion/element";
+import { PacmanLoader } from "react-spinners";
 
-const Bubbles = ({ colors }) => {
+const Bubbles = ({ colors }, props) => {
   const [bubbleData, setBubbleData] = useState([]);
   useEffect(() => {
     const generateBubbleData = colors.map((_, i) => ({
@@ -46,6 +47,7 @@ const Bubbles = ({ colors }) => {
           }
         </Pack>
       </Svg>
+      {props.isLoading ? <PacmanLoader color={'#36D7B7'} size={30} /> : null}
     </div>
   );
 };
